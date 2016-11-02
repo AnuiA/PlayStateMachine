@@ -57,8 +57,8 @@ class Pole extends egret.DisplayObjectContainer {
 
     }
 
-    public Move(x: number, y: number) {
-        var MS: MoveSta = new MoveSta(x, y, this);
+    public Move(x: number, y: number, tw: egret.Tween) {
+        var MS: MoveSta = new MoveSta(x, y, tw, this);
         this.MySta.Reload(MS);
     }
     public Idle() {
@@ -85,9 +85,11 @@ class MoveSta implements Sta {
     private Player: Pole;
     private timer: egret.Timer;
     private LeastTime: number;
-    constructor(x: number, y: number, Player: Pole) {
+    private tw: egret.Tween;
+    constructor(x: number, y: number, tw: egret.Tween, Player: Pole) {
         this.Ty = y;
         this.Tx = x;
+        this.tw = tw;
         this.Player = Player;
     }
 
@@ -96,26 +98,34 @@ class MoveSta implements Sta {
         this.Player.Modle = 1;
         var xx = this.Tx - this.Player.x;
         var yy = this.Ty - this.Player.y;
-        if (xx > 0) { this.Player.scaleX = 1; } else { this.Player.scaleX = -1; }
-        var zz = Math.pow(xx * xx + yy * yy, 0.5);
-        var time: number = zz / this.Player.MoveSpeed;
-        this.timer = new egret.Timer(50, time);
-        this.LeastTime = time;
+        // console.log("xx+yy  "+xx+","+yy);
+        if (xx >= 0) { this.Player.scaleX = 1; } else { this.Player.scaleX = -1; }
+        this.tw.to({ x: this.Tx, y: this.Ty }, 100);
+        // .call(function () {
+        //     this.Idle();            
+        // });
 
+        // var zz = Math.pow(xx * xx + yy * yy, 0.5);
+        // // var zz = Math.pow(64 * 64 + 64 * 64, 0.5);
+        // var time: number = zz / this.Player.MoveSpeed;
+        // this.timer = new egret.Timer(50, time);
+        // this.LeastTime = time;
+        // // 变换位置
+        // this.timer.start();
+        // this.timer.addEventListener(egret.TimerEvent.TIMER, () => {
+        //     this.Player.x += xx / time;
+        //     this.Player.y += yy / time;
+        //     this.LeastTime--;
+        //     if (this.LeastTime < 1) {
+        //         this.timer.stop();
+        //         if (this.LeastTime > -10) { this.Player.Idle(); }//意味着是走停不是逼停
+        //     }
+        // }, this);
 
-        // 变换位置
-        this.timer.start();
-        this.timer.addEventListener(egret.TimerEvent.TIMER, () => {
-            this.Player.x += xx / time;
-            this.Player.y += yy / time;
-            this.LeastTime--;
-            if (this.LeastTime < 1) {
-                this.timer.stop();
-                if (this.LeastTime > -10) { this.Player.Idle(); }//意味着是走停不是逼停
-            }
-        }, this);
         // this.timer.start();
         this.Player.PlayAni(this.Player.MoveAni);
+        this.Player.x = this.Tx;
+        this.Player.y = this.Ty;
     }
     exit() {
         this.LeastTime = -10;

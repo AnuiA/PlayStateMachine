@@ -27,22 +27,238 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
+interface TileData {
+    x: number;
+    y: number;
+    walkable: boolean;
+    image: string;
+}
+
+var config: TileData[] = [
+    { x: 0, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 0, walkable: false, image: "水_jpg" },
+    { x: 4, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 0, walkable: false, image: "水_jpg" },
+    { x: 8, y: 0, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 0, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 1, walkable: false, image: "水_jpg" },
+    { x: 4, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 1, walkable: false, image: "水_jpg" },
+    { x: 8, y: 1, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 1, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 2, walkable: false, image: "水_jpg" },
+    { x: 4, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 2, walkable: false, image: "水_jpg" },
+    { x: 8, y: 2, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 2, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 3, walkable: false, image: "水_jpg" },
+    { x: 4, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 3, walkable: false, image: "水_jpg" },
+    { x: 8, y: 3, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 3, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 4, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 4, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 4, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 4, walkable: false, image: "水_jpg" },
+    { x: 4, y: 4, walkable: false, image: "水_jpg" },
+    { x: 5, y: 4, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 4, walkable: false, image: "水_jpg" },
+    { x: 7, y: 4, walkable: false, image: "水_jpg" },
+    { x: 8, y: 4, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 4, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 4, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 8, y: 5, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 5, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 4, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 8, y: 6, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 6, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 4, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 8, y: 7, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 7, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 4, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 8, y: 8, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 8, walkable: true, image: "草地_jpg" },
+
+    { x: 0, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 1, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 2, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 3, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 4, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 5, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 6, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 7, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 8, y: 9, walkable: true, image: "草地_jpg" },
+    { x: 9, y: 9, walkable: true, image: "草地_jpg" },
+]
+
+class TileMap extends egret.DisplayObjectContainer {
+    public static tilesize = 64;
+
+    constructor() {
+        super();
+        this.init();
+    }
+
+    private init() {
+        for (var i = 0; i < config.length; i++) {
+            var data = config[i];
+            var tile = new Tile(data);
+            this.addChild(tile);
+        }
+        // this.touchEnabled = true;
+        // this.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e: egret.TouchEvent): void {
+        //     var playerX = 0;
+        //     var playerY = 0;
+        //     var move = false;
+        //     var localX = e.localX;
+        //     var localY = e.localY;
+        //     var gridX = Math.floor(localX / TileMap.tilesize);
+        //     var gridY = Math.floor(localY / TileMap.tilesize);
+        //     console.log(gridX, gridY);
+
+        //     var grid = new Grid(10, 10);
+
+        //     for (var i = 0; i < config.length; i++) {
+        //         grid.setWalkable(config[i].x, config[i].y, config[i].walkable);
+        //     }
+
+        //     var aStar: AStar = new AStar();
+        //     grid.setStartNode(playerX, playerY);
+        //     grid.setEndNode(gridX, gridY);
+
+        //     //有路
+        //     if (aStar.findPath(grid)) {
+
+        //         var path = aStar._path;
+
+        //         if (!move) {
+
+        //             for (var i = 0; i < path.length; i++) {
+
+        //                 move = true;
+
+        //                 playerX = gridX;
+        //                 playerY = gridY;
+
+        //                 // console.log(path[i].x * TileMap.tilesize + "," + path[i].y * TileMap.tilesize);
+        //                 // this.Player.Move(path[i].x * TileMap.tilesize, path[i].y * TileMap.tilesize);
+        //                 var tempX = path[i].x * TileMap.tilesize;
+        //                 var tempY = path[i].y * TileMap.tilesize
+        //                 Player.Move(tempX, tempY);
+
+        //                 // playerTween.to({ x: path[i].x * TileMap.tilesize, y: path[i].y * TileMap.tilesize }, 500, egret.Ease.sineIn)
+        //                 //     .call(function () {
+
+        //                 //         if (Math.abs(player.x - (gridX * TileMap.tilesize)) < 10 && Math.abs(player.y - (gridY * TileMap.tilesize)) < 10) {
+
+        //                 //             console.log("到达目的地");
+        //                 //             move = false;
+        //                 //         }
+
+        //                 //     });
+
+        //             }
+
+        //         } else {
+
+        //             // egret.Tween.removeTweens(playerTween);
+        //             console.log("remove");
+        //             move = false;
+
+
+        //         }
+        //     } else {
+
+        //         console.log("无法到达");
+        //     }
+        // }, this);
+    }
+}
+
+// class Tile extends egret.DisplayObjectContainer {
+//     data: TileData;
+//     constructor(data: TileData) {
+//         super();
+//         this.data = data;
+//         var Bitmap = new egret.Bitmap();
+//         this.addChild(Bitmap);
+//         Bitmap.texture = RES.getRes(data.image);
+//         this.x = data.x * TileMap.tilesize;
+//         this.y = data.y * TileMap.tilesize;
+//     }
+// }
+
 class Main extends egret.DisplayObjectContainer {
 
     /**
      * 加载进度界面
      * Process interface loading
      */
-    private loadingView:LoadingUI;
+    private loadingView: LoadingUI;
 
-    private Player:Pole;
+    private Player: Pole;
 
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
-    private onAddToStage(event:egret.Event) {
+    private onAddToStage(event: egret.Event) {
         //设置加载进度界面
         //Config to load process interface
         this.loadingView = new LoadingUI();
@@ -58,7 +274,7 @@ class Main extends egret.DisplayObjectContainer {
      * 配置文件加载完成,开始预加载preload资源组。
      * configuration file loading is completed, start to pre-load the preload resource group
      */
-    private onConfigComplete(event:RES.ResourceEvent):void {
+    private onConfigComplete(event: RES.ResourceEvent): void {
         RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
@@ -71,7 +287,7 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载完成
      * Preload resource group is loaded
      */
-    private onResourceLoadComplete(event:RES.ResourceEvent):void {
+    private onResourceLoadComplete(event: RES.ResourceEvent): void {
         if (event.groupName == "preload") {
             this.stage.removeChild(this.loadingView);
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
@@ -86,7 +302,7 @@ class Main extends egret.DisplayObjectContainer {
      * 资源组加载出错
      *  The resource group loading failed
      */
-    private onItemLoadError(event:RES.ResourceEvent):void {
+    private onItemLoadError(event: RES.ResourceEvent): void {
         console.warn("Url:" + event.resItem.url + " has failed to load");
     }
 
@@ -94,7 +310,7 @@ class Main extends egret.DisplayObjectContainer {
      * 资源组加载出错
      *  The resource group loading failed
      */
-    private onResourceLoadError(event:RES.ResourceEvent):void {
+    private onResourceLoadError(event: RES.ResourceEvent): void {
         //TODO
         console.warn("Group:" + event.groupName + " has failed to load");
         //忽略加载失败的项目
@@ -106,38 +322,108 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载进度
      * Loading process of preload resource group
      */
-    private onResourceProgress(event:RES.ResourceEvent):void {
+    private onResourceProgress(event: RES.ResourceEvent): void {
         if (event.groupName == "preload") {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
     }
 
-    private textfield:egret.TextField;
+    private textfield: egret.TextField;
 
     /**
      * 创建游戏场景
      * Create a game scene
      */
-    private createGameScene():void {
-        var sky:egret.Bitmap = this.createBitmapByName("bg_jpg");
-        this.addChild(sky);
-        var stageW:number = this.stage.stageWidth;
-        var stageH:number = this.stage.stageHeight;
-        sky.width = stageW;
-        sky.height = stageH;
+    private createGameScene(): void {
+        // var sky:egret.Bitmap = this.createBitmapByName("bg_jpg");
+        // this.addChild(sky);
+        // var stageW:number = this.stage.stageWidth;
+        // var stageH:number = this.stage.stageHeight;
+        // sky.width = stageW;
+        // sky.height = stageH;
 
 
+        var tilemap: TileMap = new TileMap();
+        this.addChild(tilemap);
 
-        this.Player=new Pole();
+        this.Player = new Pole();
         this.addChild(this.Player);
-     
-        this.Player.x= this.Player.y=300;
-       
+
+        this.Player.x = this.Player.y = 0;
+
         this.Player.Idle();
 
 
-        this.touchEnabled=true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP,this.Moveba,this);
+        this.touchEnabled = true;
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e: egret.TouchEvent): void {
+            var playerTween = egret.Tween.get(this.Player);
+            // var playerX = 0;
+            // var playerY = 0;
+            var move = false;
+            var localX = e.localX;
+            var localY = e.localY;
+            var gridX = Math.floor(localX / TileMap.tilesize);
+            var gridY = Math.floor(localY / TileMap.tilesize);
+            console.log(gridX, gridY);
+
+            var grid = new Grid(10, 10);
+
+            // this.Player.x = Math.floor(this.Player.x / TileMap.tilesize);
+            // this.Player.y = Math.floor(this.Player.y / TileMap.tilesize);
+            // console.log("*****Player :"+this.Player.x + "," + this.Player.y);
+
+            for (var i = 0; i < config.length; i++) {
+                grid.setWalkable(config[i].x, config[i].y, config[i].walkable);
+            }
+
+            var aStar: AStar = new AStar();
+            grid.setStartNode(this.Player.x / TileMap.tilesize, this.Player.y / TileMap.tilesize);
+            grid.setEndNode(gridX, gridY);
+
+            //有路
+            if (aStar.findPath(grid)) {
+
+                var path = aStar._path;
+
+                if (!move) {
+
+                    for (var i = 0; i < path.length; i++) {
+
+                        move = true;
+
+                        // this.Player.x = gridX;
+                        // this.Player.y = gridY;
+
+                        // playerX = gridX;
+                        // playerY = gridY;
+
+                        console.log("grid :" + gridX + "," + gridY);
+                        console.log("Player :" + this.Player.x + "," + this.Player.y);
+                        // console.log("Length :" +path[i].x * TileMap.tilesize + "," + path[i].y * TileMap.tilesize);
+                        this.Player.Move(path[i].x * TileMap.tilesize, path[i].y * TileMap.tilesize, playerTween);
+
+                        if (i == length - 2) {
+                            this.Player.Idle();
+                        }
+                    }
+                    
+
+                } else {
+
+                    // egret.Tween.removeTweens(playerTween);
+                    console.log("remove");
+                    move = false;
+
+
+                }
+            } else {
+
+                console.log("无法到达");
+            }
+            // this.Player.x = playerX;
+            // this.Player.y = playerY;
+
+        }, this);
 
         /*
 
@@ -174,18 +460,18 @@ class Main extends egret.DisplayObjectContainer {
         // colorLabel.y = 80;
         // this.addChild(colorLabel);
 
-        var textfield = new egret.TextField();
-        this.addChild(textfield);
-        textfield.alpha = 0;
-        textfield.width = stageW - 172;
-        textfield.textAlign = egret.HorizontalAlign.CENTER;
-        textfield.size = 24;
-        textfield.textColor = 0xffffff;
-        textfield.x = 172;
-        textfield.y = 135;
-        this.textfield = textfield;
+        // var textfield = new egret.TextField();
+        // this.addChild(textfield);
+        // textfield.alpha = 0;
+        // textfield.width = stageW - 172;
+        // textfield.textAlign = egret.HorizontalAlign.CENTER;
+        // textfield.size = 24;
+        // textfield.textColor = 0xffffff;
+        // textfield.x = 172;
+        // textfield.y = 135;
+        // this.textfield = textfield;
 
-        
+
 
         //根据name关键字，异步获取一个json配置文件，name属性请参考resources/resource.json配置文件的内容。
         // Get asynchronously a json configuration file according to name keyword. As for the property of name please refer to the configuration file of resources/resource.json.
@@ -194,20 +480,18 @@ class Main extends egret.DisplayObjectContainer {
 
     }
 
-    private Moveba(event:egret.TouchEvent):void {   
-         this.Player.Move(event.stageX,event.stageY);  
-      //   console.log(evt.stageX+" "+evt.stageY);
-       
-    }
+    // private Moveba(event: egret.TouchEvent): void {
+    //     this.Player.Move(event.stageX, event.stageY);
+    // }
 
 
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
      */
-    private createBitmapByName(name:string):egret.Bitmap {
+    private createBitmapByName(name: string): egret.Bitmap {
         var result = new egret.Bitmap();
-        var texture:egret.Texture = RES.getRes(name);
+        var texture: egret.Texture = RES.getRes(name);
         result.texture = texture;
         return result;
     }
@@ -216,18 +500,18 @@ class Main extends egret.DisplayObjectContainer {
      * 描述文件加载成功，开始播放动画
      * Description file loading is successful, start to play the animation
      */
-    private startAnimation(result:Array<any>):void {
-        var self:any = this;
+    private startAnimation(result: Array<any>): void {
+        var self: any = this;
 
         var parser = new egret.HtmlTextParser();
-        var textflowArr:Array<Array<egret.ITextElement>> = [];
-        for (var i:number = 0; i < result.length; i++) {
+        var textflowArr: Array<Array<egret.ITextElement>> = [];
+        for (var i: number = 0; i < result.length; i++) {
             textflowArr.push(parser.parser(result[i]));
         }
 
         var textfield = self.textfield;
         var count = -1;
-        var change:Function = function () {
+        var change: Function = function () {
             count++;
             if (count >= textflowArr.length) {
                 count = 0;
@@ -237,9 +521,9 @@ class Main extends egret.DisplayObjectContainer {
             self.changeDescription(textfield, lineArr);
 
             var tw = egret.Tween.get(textfield);
-            tw.to({"alpha": 1}, 200);
+            tw.to({ "alpha": 1 }, 200);
             tw.wait(2000);
-            tw.to({"alpha": 0}, 200);
+            tw.to({ "alpha": 0 }, 200);
             tw.call(change, self);
         };
 
@@ -250,7 +534,7 @@ class Main extends egret.DisplayObjectContainer {
      * 切换描述内容
      * Switch to described content
      */
-    private changeDescription(textfield:egret.TextField, textFlow:Array<egret.ITextElement>):void {
+    private changeDescription(textfield: egret.TextField, textFlow: Array<egret.ITextElement>): void {
         textfield.textFlow = textFlow;
     }
 }

@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg,egret_icon_png,description_json,11_png,3_png,4_png,1_png,2_png",
+			"keys": "bg_jpg,egret_icon_png,description_json,11_png,3_png,4_png,1_png,2_png,水_jpg,草地_jpg",
 			"name": "preload"
 		}
 	],
@@ -45,6 +45,16 @@
 			"url": "assets/2.png",
 			"type": "image",
 			"name": "2_png"
+		},
+		{
+			"name": "水_jpg",
+			"type": "image",
+			"url": "assets/水.jpg"
+		},
+		{
+			"name": "草地_jpg",
+			"type": "image",
+			"url": "assets/草地.jpg"
 		}
 	]
 }
